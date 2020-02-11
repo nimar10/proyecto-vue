@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>El proyecto tooo Wapooo!!!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        {{ mensaje}}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script>
+        //Creacion de vue siempre es asi
+        const app = new Vue({
+            el: '#app',
+            data: {
+                mensaje: 'Hola caracola'
+            }
+        })
+    </script>
+
+</body>
+
+</html>
