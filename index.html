@@ -13,10 +13,8 @@
 
         <button v-on:click="changervisibility">Mostrar/Ocultar</button>
         <ul v-if="mostrar">
-            <li v-for="(show, index) in tvshows" :key="index">
-                <!--Recorre el array de abajo de series -->
-                <strong>{{show.name}}</strong> voy por la ({{show.seasons}} Temporadas)
-            </li>
+            <tv-show v-for="(show,index) in tvshows" :key="index" :name="show.name" :seasons="show.seasons"></tv-show>
+
         </ul>
         <div v-else>
             no hay datos
@@ -26,6 +24,19 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script>
+        Vue.component('tv-show', {
+            props: {
+                name: String,
+                seasons: Number,
+            },
+            template: `
+                <li>
+                    <strong>{{ name }}</strong> ({{ seasons }}) Temporadas
+                </li>
+            `
+        })
+
+
         //Creacion de vue siempre es asi
         const app = new Vue({
             el: '#app',
