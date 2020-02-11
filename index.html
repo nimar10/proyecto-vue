@@ -10,15 +10,30 @@
 
 <body>
     <div id="app">
-        {{ mensaje}}
+        <ul>
+            <li v-for="(show, index) in tvshows" :key="index">
+                <!--Recorre el array de abajo de series -->
+                <strong>{{show.name}}</strong> voy por la ({{show.seasons}} Temporadas)
+            </li>
+        </ul>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script>
         //Creacion de vue siempre es asi
         const app = new Vue({
             el: '#app',
             data: {
-                mensaje: 'Hola caracola'
+                tvshows: [{
+                    name: 'Game of Thrones',
+                    seasons: 7
+                }, {
+                    name: 'Breaking Bad',
+                    seasons: 5
+                }, {
+                    name: 'Better call Saul',
+                    seasons: 4
+                }]
             }
         })
     </script>
